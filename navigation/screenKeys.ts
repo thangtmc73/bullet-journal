@@ -1,0 +1,1 @@
+export const CONVENTIONS_PAGE = 'CONVENTIONS_PAGE';
