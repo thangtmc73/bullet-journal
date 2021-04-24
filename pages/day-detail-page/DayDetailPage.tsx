@@ -2,6 +2,7 @@ import React from 'react';
 import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
 import dayjs from 'dayjs';
 import { Color } from '../../constants';
+import EmptyContent from './EmptyContent';
 
 function DayDetailPage() {
   const now = dayjs();
@@ -15,6 +16,7 @@ function DayDetailPage() {
           <Text style={styles.day}>{`${now.format('DD')} - ${now.format('ddd')}`}</Text>
         </View>
       </View>
+      <EmptyContent />
       <TouchableOpacity style={styles.addButtonContainer}>
         <Text style={styles.addButtonLabel}>Write more something!</Text>
       </TouchableOpacity>
