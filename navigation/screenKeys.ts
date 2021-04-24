@@ -1,1 +1,2 @@
 export const CONVENTIONS_PAGE = 'CONVENTIONS_PAGE';
+export const DAY_DETAIL_PAGE = 'DAY_DETAIL_PAGE';
