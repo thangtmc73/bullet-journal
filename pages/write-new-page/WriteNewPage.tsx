@@ -1,13 +1,26 @@
-import React, { useCallback, useState } from 'react';
-import { StyleSheet, View, TextInput, TouchableOpacity, Text } from 'react-native';
-import { Color } from '../../constants';
+import React, { useCallback, useRef, useState } from 'react';
+import {
+  StyleSheet,
+  View,
+  TextInput,
+  TouchableOpacity,
+  Text,
+} from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import { Color } from '../../constants';
+import QuickDayPickerPopup from './QuickDayPickerPopup';
+import { PopupHandle } from './types'
 
 function WriteNewPage() {
   const [note, setNote] = useState<string>('');
+  const quickPayPickerPopup = useRef<PopupHandle>(null);
 
   const handleNoteChangeText = useCallback((text: string) => {
     setNote(text);
+  }, []);
+
+  const handleDayPickerPress = useCallback(() => {
+    quickPayPickerPopup.current?.show();
   }, []);
 
   return (
@@ -19,6 +32,7 @@ function WriteNewPage() {
           </View>
           <TouchableOpacity
             style={styles.rightViewContainer}
+            onPress={handleDayPickerPress}
           >
             <Text>{"Today"}</Text>
           </TouchableOpacity>
@@ -50,6 +64,7 @@ function WriteNewPage() {
           </TouchableOpacity>
         </View>
       </View>
+      <QuickDayPickerPopup ref={quickPayPickerPopup} />
     </View>
   );
 }
