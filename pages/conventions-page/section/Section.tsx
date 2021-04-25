@@ -1,6 +1,7 @@
 import React from 'react';
 import { StyleSheet, View, Text } from 'react-native';
 import Item from './Item';
+import { Color } from '../../../constants';
 
 interface SectionProps {
   title: string;
@@ -22,7 +23,7 @@ function Section({ title, items }: SectionProps) {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#fff3d4',
+    backgroundColor: Color.VERY_LIGHT_YELLOW,
     borderRadius: 4,
     flex: 1,
     paddingTop: 24,
@@ -31,11 +32,15 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 16,
     fontWeight: '600',
-    color: 'black',
+    color: Color.PRIMARY_TEXT,
     textAlign: 'center',
   },
   contentContainer: {
+    backgroundColor: Color.CONTENT_BACKGROUND,
+    paddingHorizontal: 12,
+    paddingVertical: 12,
     marginTop: 8,
+    borderRadius: 4,
   },
 });
 
