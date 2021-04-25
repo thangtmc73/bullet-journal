@@ -1,11 +1,16 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
 import dayjs from 'dayjs';
-import { Color } from '../../constants';
+import { Color, ScreenKey } from '../../constants';
 import EmptyContent from './EmptyContent';
 
-function DayDetailPage() {
+function DayDetailPage({ navigation }) {
   const now = dayjs();
+
+  const handleAddButtonPress = useCallback(() => {
+    navigation.push(ScreenKey.WRITE_NEW_PAGE);
+  }, [navigation]);
+
   return (
     <View style={styles.container}>
       <View>
@@ -17,7 +22,7 @@ function DayDetailPage() {
         </View>
       </View>
       <EmptyContent />
-      <TouchableOpacity style={styles.addButtonContainer}>
+      <TouchableOpacity style={styles.addButtonContainer} onPress={handleAddButtonPress}>
         <Text style={styles.addButtonLabel}>Write more something!</Text>
       </TouchableOpacity>
     </View>
