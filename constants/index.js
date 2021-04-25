@@ -8,4 +8,7 @@ module.exports = {
   get BulletSymbol() {
     return require('./bulletSymbol').default;
   },
+  get ScreenKey() {
+    return require('./screenKey');
+  },
 };
